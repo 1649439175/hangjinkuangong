@@ -85,6 +85,77 @@
             font-size: 1.2em;
         }
 
+        .more-games {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            margin: 0 auto 30px;
+        }
+
+        .more-games h2 {
+            color: var(--gold);
+            text-align: center;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .game-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .category-link {
+            background: linear-gradient(145deg, var(--brown-dark), #2C1810);
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-light);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--brown-light);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .category-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            background: linear-gradient(145deg, #2C1810, var(--brown-dark));
+            border-color: var(--gold);
+        }
+
+        .category-link span {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: var(--brown-light);
+        }
+
+        .powered-by {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--brown-light);
+            font-size: 0.9em;
+        }
+
+        .powered-by a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .powered-by a:hover {
+            color: var(--text-light);
+        }
+
+        @media (max-width: 600px) {
+            .game-categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @keyframes glow {
             from {
                 text-shadow: 2px 2px 4px rgba(0,0,0,0.5),
@@ -192,6 +263,39 @@
         <div class="decorative-corner corner-bl"></div>
         <div class="decorative-corner corner-br"></div>
         <iframe src="content/cdn.gamesnacks.com/@famobi_api2/goldminertom1/gameCode/index.html" allowfullscreen></iframe>
+    </div>
+
+    <div class="more-games">
+        <h2>More Classic Games</h2>
+        <div class="game-categories">
+            <a href="https://gameparadise.it.com/puzzle-games" class="category-link">
+                Puzzle Games
+                <span>Brain Teasers & More</span>
+            </a>
+            <a href="https://gameparadise.it.com/action-games" class="category-link">
+                Action Games
+                <span>Thrilling Adventures</span>
+            </a>
+            <a href="https://gameparadise.it.com/shooting-games" class="category-link">
+                Shooting Games
+                <span>Test Your Aim</span>
+            </a>
+            <a href="https://gameparadise.it.com/match-3-games" class="category-link">
+                Match-3 Games
+                <span>Fun Matching Games</span>
+            </a>
+            <a href="https://gameparadise.it.com/casual-games" class="category-link">
+                Casual Games
+                <span>Quick Fun</span>
+            </a>
+            <a href="https://gameparadise.it.com/board-games" class="category-link">
+                Board Games
+                <span>Classic Tabletop</span>
+            </a>
+        </div>
+        <p class="powered-by">
+            Powered by <a href="https://gameparadise.it.com" target="_blank">Game Paradise</a>
+        </p>
     </div>
 </body>
 </html> 
