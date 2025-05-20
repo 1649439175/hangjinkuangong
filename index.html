@@ -1,39 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>黄金矿工</title>
+    <title>黄金矿工 - 经典游戏</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="经典游戏黄金矿工，快来体验挖矿的乐趣吧！">
     <style>
+        :root {
+            --brown-dark: #8B4513;
+            --brown-light: #DEB887;
+            --gold: #FFD700;
+            --rock: #808080;
+        }
+        
         body {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
-            background: #f0f0f0;
-            font-family: Arial, sans-serif;
+            background: #2C1810 url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="20" fill="%23241409"/><circle cx="10" cy="10" r="1" fill="%23392113"/></svg>') repeat;
+            font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
+        .header {
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            background: linear-gradient(180deg, var(--brown-dark), #2C1810);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+
+        .title {
+            color: var(--gold);
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5),
+                         0 0 20px var(--gold);
+            margin: 0;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.5),
+                            0 0 20px var(--gold);
+            }
+            to {
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.5),
+                            0 0 30px var(--gold),
+                            0 0 40px var(--gold);
+            }
+        }
+
         #gameContainer {
             width: 800px;
             height: 600px;
-            max-width: 100%;
-            max-height: 100vh;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 95%;
+            background: #4A3223;
+            border: 8px solid var(--brown-dark);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5),
+                        inset 0 0 30px rgba(0,0,0,0.3);
             position: relative;
             overflow: hidden;
         }
+
         iframe {
             width: 100%;
             height: 100%;
             border: none;
+            background: transparent;
+        }
+
+        .decorative-corner {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: var(--brown-light);
+            border: 3px solid var(--brown-dark);
+        }
+
+        .corner-tl { top: 0; left: 0; border-radius: 0 0 10px 0; }
+        .corner-tr { top: 0; right: 0; border-radius: 0 0 0 10px; }
+        .corner-bl { bottom: 0; left: 0; border-radius: 0 10px 0 0; }
+        .corner-br { bottom: 0; right: 0; border-radius: 10px 0 0 0; }
+
+        @media (max-width: 850px) {
+            #gameContainer {
+                height: 500px;
+            }
+            .title {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #gameContainer {
+                height: 400px;
+            }
+            .title {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        <h1 class="title">黄金矿工</h1>
+    </div>
     <div id="gameContainer">
+        <div class="decorative-corner corner-tl"></div>
+        <div class="decorative-corner corner-tr"></div>
+        <div class="decorative-corner corner-bl"></div>
+        <div class="decorative-corner corner-br"></div>
         <iframe src="content/cdn.gamesnacks.com/@famobi_api2/goldminertom1/gameCode/index.html" allowfullscreen></iframe>
     </div>
 </body>
