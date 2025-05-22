@@ -159,57 +159,6 @@
             color: var(--text-light);
         }
 
-        .music-control {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(139, 69, 19, 0.8);
-            border: 2px solid var(--gold);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .music-control:hover {
-            transform: scale(1.1);
-            background: rgba(139, 69, 19, 0.9);
-        }
-
-        .music-control i {
-            color: var(--gold);
-            font-size: 24px;
-        }
-
-        .music-control.playing {
-            animation: rotate 3s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        @media (max-width: 600px) {
-            .game-categories {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .music-control {
-                bottom: 10px;
-                right: 10px;
-                width: 40px;
-                height: 40px;
-            }
-            .music-control i {
-                font-size: 20px;
-            }
-        }
-
         @keyframes glow {
             from {
                 text-shadow: 2px 2px 4px rgba(0,0,0,0.5),
@@ -351,37 +300,5 @@
             Powered by <a href="https://gameparadise.it.com" target="_blank">Game Paradise</a>
         </p>
     </div>
-
-    <div class="music-control" id="musicControl" title="Toggle Background Music">
-        <i class="fas fa-music"></i>
-    </div>
-
-    <!-- 添加 Font Awesome 图标库 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    
-    <!-- 添加背景音乐 -->
-    <audio id="bgMusic" loop autoplay>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
-    <script>
-        // 自动播放背景音乐
-        const bgMusic = document.getElementById('bgMusic');
-        
-        // 页面加载完成后尝试播放音乐
-        window.addEventListener('load', function() {
-            bgMusic.play().catch(function(error) {
-                console.log("Auto-play prevented");
-            });
-        });
-
-        // 用户首次交互时播放音乐
-        document.addEventListener('click', function() {
-            bgMusic.play().catch(function(error) {
-                console.log("Playback prevented");
-            });
-        }, { once: true });
-    </script>
 </body>
 </html> 
