@@ -366,10 +366,21 @@
     </audio>
 
     <script>
-        // 自动播放处理
+        // 自动播放背景音乐
+        const bgMusic = document.getElementById('bgMusic');
+        
+        // 页面加载完成后尝试播放音乐
+        window.addEventListener('load', function() {
+            bgMusic.play().catch(function(error) {
+                console.log("Auto-play prevented");
+            });
+        });
+
+        // 用户首次交互时播放音乐
         document.addEventListener('click', function() {
-            const bgMusic = document.getElementById('bgMusic');
-            bgMusic.play();
+            bgMusic.play().catch(function(error) {
+                console.log("Playback prevented");
+            });
         }, { once: true });
     </script>
 </body>
